@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>experiment</title>
+	<style type="text/css">
+		canvas{
+			border: 1px dashed black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="1000px" height="600px">
+		Your browser does't support the canvas element
+	</canvas>
+	<script type="text/javascript">
+		var canvas = document.querySelector("canvas"),
+			context = canvas.getContext("2d");
+
+		context.strokeStyle = "#412b98";
+		context.fillStyle = "#ad4b1c";
+		
+		var bezier2 = function (context, point1, point2){
+			// var x1 = point1.x,
+			// 	y1 = point1.y,
+			// 	x2 = point2.x,
+			// 	y2 = point2.y;
+				
+			// context.beginPath();
+
+			context.moveTo(75, 250);
+			context.quadraticCurveTo(100, 200, 175, 250);
+			context.fillRect(100-3, 200-3, 6, 6);
+
+			// context.closePath();
+		}
+
+		var bezier3 = function (context, point1, point2, point3){
+			// context.beginPath();
+
+			context.moveTo(200, 250);
+			context.bezierCurveTo(220, 220, 280, 280, 300, 250);
+			context.fillRect(220-3, 220-3, 6, 6);
+			context.fillRect(280-3, 280-3, 6, 6);
+
+			// context.closePath();
+		}
+
+		bezier2(context);
+		bezier3(context);
+
+		context.stroke();
+		context.fill();
+	</script>
+</body>
+</html>
